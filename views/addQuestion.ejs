@@ -1,0 +1,58 @@
+<%- include('partials/header'); -%>
+
+<form >
+    <h1>Add Question</h1>
+    <label for="question">Question</label>
+    <input type="text" name="question" required/>
+    <label for="topic">Topic</label>
+    <select name="topic" required>
+        <option selected disabled hidden value="">Choose here</option>
+        <% topics.forEach((topic)=>{ %>
+            <option value=<%= topic._id %>><%= topic.topic %></option>
+        <% }); %>
+    </select>
+    <label for="link">Link</label>
+    <input type="url" name="link" required/>
+    <button>Submit</button>
+</form>
+<script>
+    const form=document.querySelector('form');
+    form.addEventListener('submit',async(e)=>{
+        e.preventDefault();//prevents the forms from refreshing
+
+        
+        //getting values
+        const question=form.question.value;
+        const topic=form.topic.value;
+        const link=form.link.value;
+        try{
+            const res=await fetch('/addQuestion',{
+                method:'POST',
+                body: JSON.stringify({question:question,topic:topic,link:link}),
+                headers: {'Content-Type':'application/json'}
+            });
+            
+            console.log("hi");
+            console.log("Hello");
+            console.log(res);
+            const status =await res.status;
+            console.log(status);
+            
+            
+            if(res.ok){
+                alert('Question has been send to the admin')
+                location.assign('/');
+            }
+            else{
+                alert('ERROR')
+                location.assign('/');
+            }
+        }
+        catch(err){
+            console.log(err);
+        }
+
+
+
+    })
+</script>

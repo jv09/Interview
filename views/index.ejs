@@ -1,0 +1,21 @@
+<%- include('partials/header'); -%>
+
+<h2 class='recipe'>Topics</h2>
+<ul >
+
+  <% if(reports.length > 0){ %>
+<div>
+<% reports.forEach((image)=>{ %>
+<div  class="boxed">
+<div   class="main-content" >
+<a href="/topic/<%=image.topic %>" class="list">
+<h3> &emsp; <%= image.topic %></h3></a>
+<br>
+</div>
+</div>
+<br>
+<% }) %>
+</div>
+<% }else{ %>
+<P>No topics to display</P>
+<%  } %>  

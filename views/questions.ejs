@@ -1,0 +1,20 @@
+<%- include('partials/header'); -%>
+<h2 class='recipe'><%= title%></h2>
+<ul >
+
+    <% if(questions.length > 0){ %>
+    <% questions.forEach( (question) => { %>
+    <li >
+        <a href="<%=question.link%>" class ="btn"><h3><%= question.question %></h3></a>
+    </li>
+  <% }) %>
+<% }else{ %>
+      <P>NOTHING TO DISPLAY YET</P>
+<%  } %>  
+</ul>
+<br>
+<br>
+
+<a href="/addQuestion" class="btn">Add a question</a>
+
+
