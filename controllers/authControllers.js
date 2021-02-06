@@ -2,7 +2,8 @@ const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 const Topic = require("../models/topic");
 const Question = require("../models/question");
-
+const Interview = require("../models/interviewexp")
+const Company = require('../models/company')
 
 
 // handle errors
@@ -123,18 +124,14 @@ module.exports.addQuestion_get = (req,res) => {
 }
 
 module.exports.addQuestion_post= async(req,res)=>{
-  const {question,topic,newTopic,link}=req.body;
+  const {question,topic,link}=req.body;
     try{
       var ques;
         if(topic!="1"){
           ques= new Question({question:question,link:link,topic:topic,display:false});
           const resp=await ques.save();
         }
-        else{
-          const t=await Topic.create({topic:newTopic});
-          ques= new Question({question:question,link:link,topic:t._id,display:false});
-          const resp=await ques.save();
-        }
+        
       res.status(201).json({ques:ques._id});
       
     }
@@ -144,3 +141,70 @@ module.exports.addQuestion_post= async(req,res)=>{
       //console.log(err);
       res.status(400).json({errors});
     }}
+
+    module.exports.addTopic_post = async(req,res) => {
+      var obj={
+        topic:req.body.topic,
+        display:false,
+      }
+      Topic.create(obj, (err, item) => {
+       if (err) {
+           console.log(err);
+       }
+       else {
+           // item.save();
+           res.redirect('/addQuestion');
+       }
+    });
+  }
+
+
+  module.exports.interviewExperience_get=(req,res)=>{
+    const company = req.params.company;
+    var a=[];
+    Interview.find()
+    .populate('company')
+    .exec(function (err, companies) {
+        if (err) return handleError(err);
+        else{
+          companies.forEach(element => {
+            if(element.company.company=== company && element.display===true)
+            {
+              a.push(element);
+            }
+          });
+        }
+        res.render('interviewExp',{title:company, items:a,})
+    });
+  }
+  module.exports.name_get = (req,res)=>{
+    const company = req.params.company;
+    const name= req.params.name;
+    var a=[];
+    Interview.find()
+    .exec(function (err, topics) {
+        if (err) return handleError(err);
+        else{
+          topics.forEach(element => {
+            if(element.name === name&& element.display===true)
+            {
+              a.push(element);
+            }
+          });
+        }
+        res.render('intername',{ title :company,questions:a})
+    });
+  }
+  module.exports.addCompany_get = (req,res)=>{
+    Company.find({},function (err,docs){
+      if (err) throw err;
+      else res.render('addCompany',{reports: docs});
+  });
+  }
+  
+  module.exports.addExperience_get = (req,res)=>{
+    Company.find({},function (err,docs){
+      if (err) throw err;
+      else res.render('addExperience',{reports: docs});
+  });
+  }
