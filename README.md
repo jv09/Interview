@@ -34,3 +34,4 @@ Add your mongodb URI in the app.js
  `Visit http://localhost:3000`
 
 ## Welcome Page
+![1](https://user-images.githubusercontent.com/70435148/108624562-aa27f480-746b-11eb-8559-b28847231c4c.png)
