@@ -1,7 +1,6 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config()
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser} = require('./middleware/authMiddleware');
@@ -39,7 +38,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
     const admin = new AdminBro(options);
      const router = AdminBroExpress.buildAuthenticatedRouter(admin,{
        cookieName: 'admin-bro',
-       cookiePassword: 'Hellyeah@123',
+       cookiePassword: 'H@123',
        authenticate: async (email, password) =>{
          if (email===ADMIN.email && password=== ADMIN.password){
            return ADMIN

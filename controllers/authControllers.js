@@ -142,69 +142,22 @@ module.exports.addQuestion_post= async(req,res)=>{
       res.status(400).json({errors});
     }}
 
-    module.exports.addTopic_post = async(req,res) => {
+    module.exports.addTopic_post = (req,res,next) => {
+      
       var obj={
         topic:req.body.topic,
         display:false,
       }
-      Topic.create(obj, (err, item) => {
+      Topic.create(obj, (err,) => {
        if (err) {
            console.log(err);
        }
        else {
-           // item.save();
+           //item.save();
            res.redirect('/addQuestion');
        }
     });
   }
 
 
-  module.exports.interviewExperience_get=(req,res)=>{
-    const company = req.params.company;
-    var a=[];
-    Interview.find()
-    .populate('company')
-    .exec(function (err, companies) {
-        if (err) return handleError(err);
-        else{
-          companies.forEach(element => {
-            if(element.company.company=== company && element.display===true)
-            {
-              a.push(element);
-            }
-          });
-        }
-        res.render('interviewExp',{title:company, items:a,})
-    });
-  }
-  module.exports.name_get = (req,res)=>{
-    const company = req.params.company;
-    const name= req.params.name;
-    var a=[];
-    Interview.find()
-    .exec(function (err, topics) {
-        if (err) return handleError(err);
-        else{
-          topics.forEach(element => {
-            if(element.name === name&& element.display===true)
-            {
-              a.push(element);
-            }
-          });
-        }
-        res.render('intername',{ title :company,questions:a})
-    });
-  }
-  module.exports.addCompany_get = (req,res)=>{
-    Company.find({},function (err,docs){
-      if (err) throw err;
-      else res.render('addCompany',{reports: docs});
-  });
-  }
-  
-  module.exports.addExperience_get = (req,res)=>{
-    Company.find({},function (err,docs){
-      if (err) throw err;
-      else res.render('addExperience',{reports: docs});
-  });
-  }
+ 
