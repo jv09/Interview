@@ -20,7 +20,7 @@ Inorder to run the website locally on your computer , follow the steps given bel
 * The above command will install all the required packages and dependencies required for the project
 
 
-Add your mongodb URI in the app.js
+* Add your mongodb URI in the app.js
 
 `module.exports = {
     MongoURI : 'mongodb+srv://<user>:password@cluster08451.am7f4.mongodb.net/<name of database>?retryWrites=true&w=majority'
