@@ -4,9 +4,12 @@
 
     <% if(questions.length > 0){ %>
     <% questions.forEach( (question) => { %>
-    <li >
+      <li >
         <a href="<%=question.link%>" class ="btn"><h3><%= question.question %></h3></a>
     </li>
+
+     </div>
+     </div>
   <% }) %>
 <% }else{ %>
       <P>NOTHING TO DISPLAY YET</P>
@@ -15,6 +18,5 @@
 <br>
 <br>
 
-<a href="/addQuestion" class="btn">Add a question</a>
 
 

@@ -1,7 +1,5 @@
 const { Router } = require('express');
 const authController = require('../controllers/authControllers');
-const Interview = require('../models/interviewexp')
-const Company = require('../models/company');
 const Topic = require('../models/topic');
 const Question = require('../models/question');
 var bodyParser = require('body-parser');
@@ -11,19 +9,8 @@ const User = require('../models/User');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var fs = require('fs');
-var path = require('path');
-var multer = require('multer');
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'public')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now())
-    }
-  });
-   
-  var upload = multer({ storage: storage });
+
 
 const router = Router();
 

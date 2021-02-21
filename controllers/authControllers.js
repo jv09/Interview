@@ -2,8 +2,6 @@ const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 const Topic = require("../models/topic");
 const Question = require("../models/question");
-const Interview = require("../models/interviewexp")
-const Company = require('../models/company')
 
 
 // handle errors
