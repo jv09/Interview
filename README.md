@@ -21,6 +21,7 @@ Inorder to run the website locally on your computer , follow the steps given bel
 
 
 Add your mongodb URI in the app.js
+
 `module.exports = {
     MongoURI : 'mongodb+srv://<user>:password@cluster08451.am7f4.mongodb.net/<name of database>?retryWrites=true&w=majority'
 }`
@@ -39,7 +40,7 @@ Add your mongodb URI in the app.js
 ## Login/SignUp Page
 ![2](https://user-images.githubusercontent.com/70435148/108624704-8913d380-746c-11eb-8a7d-5726329755e2.png)
 
-## User Panel(Programming-Practice)
+## User Panel(Practice Panel)
 *You can practice questions related to all the topics mentioned. 
 You can also contribute by adding questions and topics.*
 
