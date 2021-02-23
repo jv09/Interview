@@ -1,5 +1,5 @@
 # Interview
-This project was basiaclly a web app wherein one has to register or login to access. After logging in you can add or contribute topics and questions as per your choice for others, which then further verified and uploaded by admins and practice them to improve your cp skills. 
+This project was a web app wherein one has to register or login to access. After logging in you can add or contribute topics and questions as per your choice for others, which then further be verified and uploaded by admins and practice them to improve your cp skills. 
 
 # Dependencies used
    * [Mongoose](https://mongoosejs.com/docs/)
@@ -11,8 +11,8 @@ This project was basiaclly a web app wherein one has to register or login to acc
 
 Inorder to run the website locally on your computer , follow the steps given below:
 
-* Clone this github repo.
-* Open the terminal and change the directory to the downloaded folder then run the command 
+* Clone this Github repo.
+* Open the terminal and change the directory to the downloaded folder, then run the command 
 
 ```sh
  npm install
@@ -54,5 +54,5 @@ You can also contribute by adding questions and topics.*
 ![5](https://user-images.githubusercontent.com/70435148/108629919-30eaca80-7488-11eb-8f4f-137da8a9e0d6.png)
 
 ## Admin panel
-*I have used admin-bro library for making an interactive admin panel. Main purpose of the admin is to aprrove the questions and topics added by the users. He can also control various other site services.* 
+*I have used admin-bro library for making an interactive admin panel. Main purpose of the admin is to approve the questions and topics added by the users. He can also control various other site services.* 
 ![6](https://user-images.githubusercontent.com/70435148/108630065-0baa8c00-7489-11eb-97f8-f1e44c2ff940.png)
